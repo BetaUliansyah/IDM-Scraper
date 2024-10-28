@@ -14,5 +14,7 @@ for i in provinsi_options:
     row_df = pd.DataFrame({'kode_provinsi': [i['value']], 'nama_provinsi': [i['label']]})
     provinsi_df = pd.concat([provinsi_df, row_df], ignore_index=True)
 provinsi_df.to_csv('provinsi.csv')
+end_time = perf_counter()
 total_time = end_time - start_time
-print(f"\n---Finished in: {total_time:.2f} seconds---")
+rows = len(provinsi_df)
+print(f"\n---Finished scraping {rows} rows in: {total_time:.2f} seconds---")
