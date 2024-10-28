@@ -19,4 +19,5 @@ for i in kode_kecamatan:
 desa_df.to_csv('kode_desa.csv')
 end_time = perf_counter()
 total_time = end_time - start_time
-print(f"\n---Finished in: {total_time:.2f} seconds---")
+rows = len(desa_df)
+print(f"\n---Finished scraping {rows} rows in: {total_time:.2f} seconds---") # Approximately take 340 seconds
