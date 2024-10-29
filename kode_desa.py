@@ -6,7 +6,7 @@ import pandas as pd
 from time import perf_counter
 start_time = perf_counter()
 s = requests.Session()
-kecamatan_df = pd.read_csv('kecamatan.csv')
+kecamatan_df = pd.read_csv('kode_kecamatan.csv')
 kode_kecamatan = kecamatan_df['kode_kecamatan']
 desa_df = pd.DataFrame(columns= ['kode_desa', 'nama_desa'])
 for i in kode_kecamatan:
