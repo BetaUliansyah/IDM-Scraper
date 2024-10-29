@@ -30,8 +30,7 @@ def fetch_idm(kode_desa, tahun=2024):
         # Parse the response to get desa data
         print(kode_desa)
         print(type(kode_desa))
-        nama_desa = desa_df['nama_desa'][desa_df['kode_desa']==kode_desa]
-        # desa = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('tr').findNext('tr').findNext('td').findNext('td').text.replace(': ',"")
+        desa = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('tr').findNext('tr').findNext('td').findNext('td').text.replace(': ',"")
         skor_idm = bsoup.find("section", {'class': 'content'}).findNext('td').findNext('td').findNext('td').findNext('td').text.replace(': ',"")
         status_idm = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('td').findNext('td').findNext('td').findNext('td').text.replace(': ',"")
         target_status = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('tr').findNext('td').findNext('td').findNext('td').findNext('td').text.replace(': ',"")
