@@ -12,7 +12,7 @@ start_time = perf_counter()
 s = requests.Session()
 
 # Read kecamatan codes from CSV
-kecamatan_df = pd.read_csv('kecamatan.csv')
+kecamatan_df = pd.read_csv('kode_kecamatan.csv')
 kode_kecamatan = kecamatan_df['kode_kecamatan']
 
 # Prepare the DataFrame to store results
