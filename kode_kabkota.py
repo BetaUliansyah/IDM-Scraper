@@ -6,7 +6,7 @@ import pandas as pd
 from time import perf_counter
 start_time = perf_counter()
 s = requests.Session()
-provinsi_df = pd.read_csv('provinsi.csv')
+provinsi_df = pd.read_csv('kode_provinsi.csv')
 kode_provinsi = provinsi_df['kode_provinsi']
 kabkota_df = pd.DataFrame(columns= ['kode_kabkota', 'nama_kabkota'])
 for i in kode_provinsi:
@@ -16,7 +16,7 @@ for i in kode_provinsi:
     for j in response_json['mapData']:
         row_df = pd.DataFrame({'kode_kabkota': [j['id']], 'nama_kabkota': [j['text']]})
         kabkota_df = pd.concat([kabkota_df, row_df], ignore_index=True)
-kabkota_df.to_csv('kabkota.csv')
+kabkota_df.to_csv('kode_kabkota.csv')
 end_time = perf_counter()
 total_time = end_time - start_time
 rows = len(kabkota_df)
