@@ -16,7 +16,7 @@ s = requests.Session()
 
 # Read kode desa from CSV
 desa_df = pd.read_csv('kode_desa.csv')
-kode_desa = desa_df['kode_desa'].iloc[200:205]
+kode_desa = desa_df['kode_desa'].iloc[200:300]
 
 # Prepare the DataFrame to store results
 idm_df = pd.DataFrame(columns=['tahun', 'kode_desa', 'nama_desa', 'skor_idm', 'status_idm', 'target_status', 'idm_minimal', 'dibutuhkan', 'IKS', 'IKE', 'IKL'])
@@ -59,7 +59,7 @@ def fetch_idm(kode_desa, tahun=2024):
         return pd.DataFrame(columns=['kode_desa'])
 
 # Execute the requests concurrently with a max of 10 connections at a time
-with ThreadPoolExecutor(max_workers=10) as executor:
+with ThreadPoolExecutor(max_workers=20) as executor:
     futures = {executor.submit(fetch_idm, code): code for code in kode_desa}
     for future in as_completed(futures):
         result_df = future.result()
