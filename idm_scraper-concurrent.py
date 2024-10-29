@@ -28,8 +28,6 @@ def fetch_idm(kode_desa, tahun=2024):
         r = s.get(url, verify=False)
         bsoup = BeautifulSoup(r.text, 'html.parser')
         # Parse the response to get desa data
-        print(kode_desa)
-        print(type(kode_desa))
         desa = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('tr').findNext('tr').findNext('td').findNext('td').text.replace(': ',"")
         skor_idm = bsoup.find("section", {'class': 'content'}).findNext('td').findNext('td').findNext('td').findNext('td').text.replace(': ',"")
         status_idm = bsoup.find("section", {'class': 'content'}).findNext('tr').findNext('tr').findNext('td').findNext('td').findNext('td').findNext('td').text.replace(': ',"")
